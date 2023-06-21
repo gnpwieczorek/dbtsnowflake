@@ -26,7 +26,7 @@ with stg_client as (
 
 
 
-    from {{ source("client", "client_raw") }}
+    from {{ ref("raw_client") }}
 
     {% if is_incremental() %}
 
