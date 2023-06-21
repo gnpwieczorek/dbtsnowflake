@@ -34,7 +34,7 @@ with stg_client as (
         where added_at > (select max(added_at) from {{ this }})
 
     {% endif %}
-    qualify row_number() over (partition by id,ts_ms order by ts_ms desc) = 1
+    qualify row_number() over (partition by id order by ts_ms desc) = 1
 )
 
 select * from stg_client
