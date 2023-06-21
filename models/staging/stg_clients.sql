@@ -1,8 +1,7 @@
 {{
     config(
         materialized="incremental"
-        , unique_key = ["ID","TS_MS"]
-        , tags=['timescaledb']
+        , tags=['hestia']
     )
 }}
 
