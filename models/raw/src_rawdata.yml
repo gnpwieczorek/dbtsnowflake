@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: client
+    database: hestia
+    schema: raw
+    tables:
+      - name: client_raw
