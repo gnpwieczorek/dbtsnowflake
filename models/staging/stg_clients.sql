@@ -1,7 +1,7 @@
 {{
     config(
         materialized="incremental"
-        , tags=['hestia']
+        , tags=['hestia','clients']
     )
 }}
 
