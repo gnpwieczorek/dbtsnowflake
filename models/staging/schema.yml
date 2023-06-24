@@ -5,10 +5,9 @@ sources:
     database: hestia
     schema: raw
     tables:
-      - name: client_raw
+      - name: stg_clients
         description: >
-          RAW clients table, ingested with Goldenore CDC solution
-          Represents clinets from example dataset
+         Staging clients structure, cleansed and incrementlay loaded
         columns:
           - name: ADRESS_EMAIL
             data_type: varchar
@@ -49,11 +48,26 @@ sources:
           - name: TS_MS
             data_type: timestamp
             description: transaction timestamp in ms
-          - name: TRANSFER_TIME
+          - name: added_at
             data_type: timestamp
             description: Streams transfer date
-          - name: ROWNUM_ID
+      
+      - name: stg_clients_mails
+        description: >
+         Staging mails structure, cleansed and incrementlay loaded
+        columns:
+          - name: ADRESS_EMAIL
+            data_type: varchar
+            description: persinal email adress
+          - name: COMPANY
+            data_type: varchar
+            description: COMPANY name of the client
+          - name: NATION
+            data_type: varchar
+            description: Client's nation
+          - name: added_at
+            data_type: timestamp
+            description: Streams transfer date
+          - name: rownum_id
             data_type: int
             description: Sequential rowid in RAW layer   
-
-          

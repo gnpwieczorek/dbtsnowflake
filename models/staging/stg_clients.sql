@@ -1,7 +1,7 @@
 {{
     config(
         materialized="incremental"
-        , tags=['hestia']
+        , tags=['hestia','clients']
     )
 }}
 
@@ -26,7 +26,7 @@ with stg_client as (
 
 
 
-    from {{ source("client", "client_raw") }}
+    from {{ ref("raw_client") }}
 
     {% if is_incremental() %}
 
