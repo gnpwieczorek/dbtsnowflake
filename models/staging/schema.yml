@@ -1,10 +1,6 @@
 version: 2
 
-sources:
-  - name: client
-    database: hestia
-    schema: raw
-    tables:
+models:
       - name: stg_clients
         description: >
          Staging clients structure, cleansed and incrementlay loaded
@@ -24,6 +20,9 @@ sources:
           - name: ID
             data_type: varchar
             description: numeric id from CDC
+            tests:
+              - not_null
+              - unique
           - name: LAST_NAME
             data_type: varchar
             description: Last name
@@ -59,6 +58,8 @@ sources:
           - name: ADRESS_EMAIL
             data_type: varchar
             description: persinal email adress
+            tests:
+              - not_null
           - name: COMPANY
             data_type: varchar
             description: COMPANY name of the client
@@ -70,4 +71,10 @@ sources:
             description: Streams transfer date
           - name: rownum_id
             data_type: int
-            description: Sequential rowid in RAW layer   
+            description: Sequential rowid in RAW layer
+            tests:
+              - not_null
+              - unique
+              - relationships:
+                  to: ref('raw_client')
+                  field: rownum_id

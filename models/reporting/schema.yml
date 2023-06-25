@@ -1,0 +1,54 @@
+version: 2
+
+models:
+      - name: clients
+        description: >
+          Actual clients state
+        columns:
+          - name: ADRESS_EMAIL
+            data_type: varchar
+            description: persinal email adress
+          - name: COMPANY
+            data_type: varchar
+            description: COMPANY name of the client
+          - name: CREDIT_CARD
+            data_type: varchar
+            description: CVV credit card number
+          - name: FIRST_NAME
+            data_type: varchar
+            description: First name
+          - name: ID
+            data_type: varchar
+            description: numeric id from CDC
+          - name: LAST_NAME
+            data_type: varchar
+            description: Last name
+          - name: NATION
+            data_type: varchar
+            description: Client's nation
+          - name: PASSPORT_NUMBER
+            data_type: varchar
+            description: Client's Passport
+          - name: PESEL
+            data_type: varchar
+            description: PESEL
+          - name: PHONE_NUMBER
+            data_type: varchar
+            description: PHONE_NUMBER
+
+      - name: clients
+        description: >
+          Mail domains catigerozed in nation and company
+        columns:
+          - name: domain_usage
+            data_type: int
+            description: number of specific domain usage
+          - name: mail_domain
+            data_type: varchar
+            description: Mail domain
+          - name: nation
+            data_type: varchar
+            description: nation od mail domain
+          - name: company
+            data_type: varchar
+            description: company of mail domain

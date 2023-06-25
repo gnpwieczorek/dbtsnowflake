@@ -25,6 +25,8 @@ sources:
           - name: ID
             data_type: varchar
             description: numeric id from CDC
+            tests:
+              - not_null
           - name: LAST_NAME
             data_type: varchar
             description: Last name
@@ -43,6 +45,10 @@ sources:
           - name: OP
             data_type: varchar
             description: Type of registrated operation
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['c', 'd', 'u']
           - name: TRANSACTION
             data_type: int
             description: DB transaction
